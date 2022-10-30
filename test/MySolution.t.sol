@@ -17,7 +17,7 @@ contract MySolutionTest is Test {
     uint constant currentLeaderGas = 1000000;
 
     // Change accordingly.
-    uint constant SEED = 0;
+    uint constant SEED = 1;
     // Change accordingly.
     uint constant SALT = 0;
     // Change accordingly.
