@@ -17,7 +17,7 @@ contract MySolutionTest is Test {
     uint constant currentLeaderGas = 1000000;
 
     // Change accordingly.
-    uint constant SEED = 1;
+    uint constant SEED = 14231;
     // Change accordingly.
     uint constant SALT = 0;
     // Change accordingly.
@@ -38,11 +38,14 @@ contract MySolutionTest is Test {
 
     function testEndToEnd() public {
         OPTIMIZOR_MAINNET.commit(computeKey(MY_ADDRESS, address(sqrt).codehash, SALT));
-        vm.roll(block.number + 65);
+        vm.roll(block.number + 100);
         OPTIMIZOR_MAINNET.challenge(SQRT_ID, address(sqrt), MY_ADDRESS, SALT);
     }
 
+    // event LogInfo(string info, bytes32 data);
     function testWithSeed(uint seed) internal {
+        // emit LogInfo("Here1", computeKey(address(0x6941C2C7968d836d4d06563D1dA3Cd02CAb8e1dF), address(0xfa873c8438C98849883e5bfd667Fc32E9133058C).codehash, SALT));
+
         Fixed18[INPUT_SIZE] memory input;
         for (uint i = 0; i < INPUT_SIZE; ++i) {
             input[i] = Fixed18.wrap(i);
