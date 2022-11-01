@@ -10,7 +10,6 @@ contract MySolution is ISqrt {
             unchecked{
                 Fixed18 tmp_a = input[i];
                 Fixed18 y = input[i];
-                // uint256 num = Fixed18.unwrap(a) >> 18;
                 uint256 msb = 0;
                 uint256 xc = Fixed18.unwrap(tmp_a);
                 if (xc >= 0x10000000000000000) { xc >>= 64; msb += 64; }
