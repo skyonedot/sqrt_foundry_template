@@ -9,6 +9,11 @@ import {MySolution} from "src/MySolution.sol";
 import {IOptimizor, OPTIMIZOR_MAINNET} from "src/IOptimizor.sol";
 import {computeKey} from "src/CommitHash.sol";
 
+interface IPurityChecker {
+    /// @return True if the code of the given account satisfies the code purity requirements.
+    function check(address account) external view returns (bool);
+}
+
 contract MySolutionTest is Test {
     SqrtChallenge challenge;
     uint constant SQRT_ID = 1;
@@ -42,9 +47,10 @@ contract MySolutionTest is Test {
         OPTIMIZOR_MAINNET.challenge(SQRT_ID, address(sqrt), MY_ADDRESS, SALT);
     }
 
-    // event LogInfo(string info, bytes32 data);
+    event LogInfo(string info, bytes32 data);
     function testWithSeed(uint seed) internal {
-        // emit LogInfo("Here1", computeKey(address(0x6941C2C7968d836d4d06563D1dA3Cd02CAb8e1dF), address(0xfa873c8438C98849883e5bfd667Fc32E9133058C).codehash, SALT));
+        emit LogInfo("Here1", computeKey(address(0x70997970C51812dc3A010C7d01b50e0d17dc79C8), address(0xa85b028984bC54A2a3D844B070544F59dDDf89DE).codehash, SALT));
+        emit LogInfo("CodeHash", address(0xa85b028984bC54A2a3D844B070544F59dDDf89DE).codehash);
 
         Fixed18[INPUT_SIZE] memory input;
         for (uint i = 0; i < INPUT_SIZE; ++i) {
@@ -53,5 +59,10 @@ contract MySolutionTest is Test {
 
         uint gasSpent = challenge.run(address(sqrt), seed);
         assertTrue(gasSpent < currentLeaderGas);
+    }
+
+    function testPurity() public {
+        IPurityChecker checker = IPurityChecker(0x5C71fcd090948dCC5E8A1a01ad8Fa26313422022);
+        assertTrue(checker.check(address(sqrt)));
     }
 }

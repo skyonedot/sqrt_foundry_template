@@ -9,11 +9,11 @@ import {computeKey} from "src/CommitHash.sol";
 
 uint constant SQRT_ID = 1;
 // Change accordingly.
-address constant MY_ADDRESS = address(0);
+address constant MY_ADDRESS = address(0x6941C2C7968d836d4d06563D1dA3Cd02CAb8e1dF);
 // Change accordingly.
 uint constant SALT = 0;
 // Deploy solution contract.
-address constant DEPLOYED_SOLUTION = address(0);
+address constant DEPLOYED_SOLUTION = address(0x50C231DCf77F66875b92cC2e1fE6bc55eC12Ed5f);
 
 contract MySolutionDeployAndCommit is Script {
     function run() public {
@@ -23,7 +23,7 @@ contract MySolutionDeployAndCommit is Script {
         MySolution sqrt = new MySolution();
 
         // Commit solution key.
-        OPTIMIZOR_MAINNET.commit(computeKey(MY_ADDRESS, address(sqrt).codehash, SALT));
+        OPTIMIZOR_MAINNET.commit(computeKey(MY_ADDRESS, address(0x50C231DCf77F66875b92cC2e1fE6bc55eC12Ed5f).codehash, SALT));
 
         vm.stopBroadcast();
     }
