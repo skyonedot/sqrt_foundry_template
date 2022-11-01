@@ -5,6 +5,7 @@
 
     > 初值的选取是看位数, 取位数/2的一个值
     > 单纯求平方根的Gas的Cost在10w左右
+    > 这个初值的选取是参考别人的, 比我想出来的简单/2取得的效果更好
 
 - 第二个方法是 feature/original branch 里面的 src/MySolution.sol
 
