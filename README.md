@@ -1,4 +1,19 @@
 
+两个方法, 核心都是牛顿法迭代公式, 初值选取的不一样
+
+- 第一个方法就是 main branch里面的 src/MySolution.sol
+
+    > 初值的选取是看位数, 取位数/2的一个值
+    > 单纯求平方根的Gas的Cost在10w左右
+
+- 第二个方法是 feature/original branch 里面的 src/MySolution.sol
+
+    > 初值的选取是 原始值/2
+    > 单纯求平方根的Gas的Cost在16w左右
+
+
+---
+
 <img align="right" width="150" height="150" top="100" src="./assets/sqrt.svg">
 
 # Optimizor Club SQRT challenge
