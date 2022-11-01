@@ -1,0 +1,11 @@
+// for (uint256 i = 0; i < input.length; ++i) {
+//     unchecked {
+//         Fixed18 z = input[i].div(Fixed18.wrap(2 * 10 ** 18));
+//         Fixed18 y = input[i];
+//         while (y.gt(z)) {
+//             y = z;
+//             z = input[i].div( z.mul(Fixed18.wrap(10**36))).add(z).div(Fixed18.wrap(2 * 10 ** 18));
+//         }
+//         output[i] = z.mul(Fixed18.wrap(10**27));
+//     }
+// }
