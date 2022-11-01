@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.18;
-
 import {ISqrt, INPUT_SIZE} from "src/SqrtChallenge.sol";
 import {Fixed18} from "src/Fixed18.sol";
 
