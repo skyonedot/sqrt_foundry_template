@@ -11,6 +11,10 @@
     > 初值的选取是 原始值/2
     > 单纯求平方根的Gas的Cost在16w左右
 
+```bash
+forge test --use ./bin/solc
+forge test --use ./bin/solc --rpc-url $RPC -vvvv
+```
 
 ---
 
